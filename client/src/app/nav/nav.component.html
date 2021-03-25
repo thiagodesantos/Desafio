@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">   
+    <div class="container">
+        <a class="navbar-brand" routerLink="/" routerLinkActive="active"> Desafio</a>        
+       
+        <ul class="navbar-nav mr-auto">
+            <ng-container *ngIf="loginService.usuario | async">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/produtos" routerLinkActive="active">Produtos</a>
+                </li>              
+            </ng-container>                         
+        </ul>        
+        <a class="btn btn-primary text-white " *ngIf="loginService.usuario | async" (click)="logout()">Sair</a>       
+    </div> 
+  </nav>

@@ -1,0 +1,54 @@
+    
+    <form #editForm="ngForm" id="editForm" (ngSubmit)="udpate()" class="edit-form">
+        <div class="row"> 
+            <div class="col-12 text-center">
+                <h2>Editar Produto</h2>
+            </div>    
+            <div class="col-4"> 
+                    <img src="{{produto.foto}}" alt="{{produto.nome}}" 
+                        class="card-img-top img-thumbnail">
+                    <div class="card-body">
+                    </div>
+            </div>   
+            <div class="col-8">     
+                    <div class="form-group">   
+                        <h4 class="mt-2">Nome</h4>       
+                        <input 
+                            name="nome"
+                            [(ngModel)]="produto.nome"
+                            class="form-control"
+                            type="text" 
+                            placeholder="Nome Produto"
+                            required="required">
+                    </div>
+                    <div class="form-group">         
+                        <h4 class="mt-2">Valor</h4>   
+                        <input 
+                            name="valor"
+                            [(ngModel)]="produto.valor"
+                            class="form-control" 
+                            type="number"
+                            required="required" 
+                            placeholder="Valor">
+                    </div>
+                    <div class="form-group">         
+                        <h4 class="mt-2">Foto</h4>   
+                        <input 
+                            ng-model="foto"
+                            id="foto"
+                            type="file" 
+                            name="foto"                             
+                            (change)="fileProgress($event)">
+                    </div>
+
+
+                    
+                    <div class="form-group  pull-right">
+                        <button form="editForm" type="submit" class="btn btn-success">Salvar</button>
+                        <a class="btn btn-link" routerLink="/produtos" routerLinkActive="active">Voltar</a>
+                    </div>   
+            </div>     
+        </div>
+    </form>
+
+

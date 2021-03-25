@@ -1,0 +1,35 @@
+<div *ngIf="!(loginService.usuario | async)" class="container login-form">
+    <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+        <h2 class="text-center">Entrar</h2>       
+        <div class="form-group">          
+            <input 
+                name="username"
+                [(ngModel)]="model.username"
+                class="form-control mr-sm-2"
+                type="text" 
+                placeholder="Login"
+                required="required">
+        </div>
+        <div class="form-group">            
+            <input 
+                name="password"
+                [(ngModel)]="model.password"
+                class="form-control mr-sm-2" 
+                type="password"
+                required="required" 
+                placeholder="Senha">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">Login</button>
+        </div>       
+    </form>
+</div>
+
+<div *ngIf="(loginService.usuario | async)" class="d-flex justify-content-center">
+    <div class="card border-secondary mb-3" style="max-width: 20rem;">        
+        <div class="card-body">
+          <h4 class="card-title">Você já está logado</h4>
+          <p class="card-text">Um desafio feito ultra rapido, para conhecer mais do meu trabalho acesse meu GitHub .</p>
+        </div>
+      </div>
+</div>

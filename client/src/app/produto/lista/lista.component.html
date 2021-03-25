@@ -1,0 +1,65 @@
+
+<div class=" container">
+    <div class="card border-secondary mb-5">
+        <div class="card-header text-primary">Cadastrar Produto</div>
+        <form #inserirForm="ngForm" (ngSubmit)="inserir()" autocomplete="off">
+            <div class="card-body row">
+                <div class="col-md-3">
+                    <h5 class="card-title">Nome</h5>
+                    <input type="text" class="form-control" name="nome" 
+                    required [(ngModel)]="proModel.nome" placeholder="Nome">
+                </div>                      
+                <div class="col-md-3">
+                    <h5 class="card-title">Valor</h5>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="number" class="form-control" name="valor" 
+                        required [(ngModel)]="proModel.valor" placeholder="Valor">
+                    </div>
+                </div>  
+                <div class="col-md-3">
+                    <h5 class="card-title">Foto</h5>
+                    <div class="input-group">    
+                        <label class="btn btn-default">
+                            <input type="file"name="foto" (change)="fileProgress($event)">
+                        </label>                         
+                    </div>
+                </div>                         
+            </div>
+            <div class="ol-md-3 text-right  align-self-end pb-2">
+                <button class="btn btn-success mr-2" type="submit">Inserir</button>
+                <button class="btn btn-default mr-2">Cancelar</button>
+            </div>
+            
+        </form>
+    </div>
+
+    <div class="card border-secondary mb-5">
+        <div class="card-header text-primary">Lista Produto</div>
+        <div class="row col-12">
+            <div *ngFor="let produto of produtos$"  class="col-2 card-body">
+                <div class="card mb-4">
+                    <div class="card-img-wrapper">
+                        <img src="{{produto.foto || './assets/user.png'}}" alt="{{produto.nome}}" class="card-img-top">
+                        <ul class="list-inline member-icons animate text-center">
+                            <li class="list-inline-item">
+                                <button routerLink='/produtos/{{produto.id}}' class="btn btn-primary">
+                                <i class="fa fa-edit"></i></button></li>                                             
+                            <li class="list-inline-item">
+                                <button  (click)="deletar(produto.id)"class="btn btn-primary">
+                                <i class="fa fa-trash"></i></button></li>
+                        </ul>
+                    </div>
+                    <div class="card-body p-1">
+                        <h6 class="card-title text-center mb-1">                        
+                            {{produto.nome}}
+                        </h6>
+                        <p class="card-text text-muted text-center">R$ {{produto.valor}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

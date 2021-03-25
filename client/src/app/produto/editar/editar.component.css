@@ -1,0 +1,17 @@
+h2 {
+    margin-bottom: 25px;
+}
+
+.edit-form {
+    width: 640px;
+    margin: 50px auto;
+    font-size: 15px;
+    padding: 20px;
+    border: solid 2px #e95420;
+    border-radius: 25px;    
+}
+
+.img-thumbnail {    
+    width: 100%;
+    max-height: 85%;
+}
